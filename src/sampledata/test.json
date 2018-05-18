@@ -1,0 +1,82 @@
+{
+  "data": [
+    {
+      "rowType": "header_1",
+      "height": 100,
+      "children": [
+        {
+          "colType": "image",
+          "colWidth":1
+        },
+        {
+          "colType": "navbar",
+          "colWidth": 11
+        }
+      ]
+    },
+    {
+      "rowType": "feature_1",
+      "height": 400,
+      "children": [
+        {
+          "colType": "image",
+          "colWidth": 5
+        },
+        {
+          "colType": "paragraph",
+          "colWidth": 7
+        }
+      ]
+    },
+    {
+      "rowType": "feature_1",
+      "height": 220,
+      "children": [
+        {
+          "colType": "image",
+          "colWidth": 3
+        },
+        {
+          "colType": "text",
+          "colWidth": 3
+        },
+        {
+          "colType": "text",
+          "colWidth": 3
+        },
+        {
+          "colType": "image",
+          "colWidth": 3
+        }
+      ]
+    },
+    {
+      "rowType": "feature_1",
+      "height": 165,
+      "children": [
+        {
+          "colType": "whitespace",
+          "colWidth": 2
+        },
+        {
+          "colType": "image",
+          "colWidth": 8
+        },
+        {
+          "colType": "whitespace",
+          "colWidth": 2
+        }
+      ]
+    },
+    {
+      "rowType": "footer_1",
+      "height": 50,
+      "children": [
+        {
+          "colType": "paragraph",
+          "colWidth": 12
+        }
+      ]
+    }
+  ]
+}
