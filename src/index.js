@@ -4,6 +4,11 @@ import './index.scss';
 import registerServiceWorker from './registerServiceWorker';
 import { Grid, Paper, TextField } from '@material-ui/core';
 import { Scrollbars } from 'react-custom-scrollbars';
+import NavBar from './components/NavBar/navbar.component';
+import CardImage from './components/CardImage/cardImage.component';
+import Footer from './components/Footer/footer.component';
+import ImageComp from './components/Image/image.component';
+import Paragraph from './components/Paragraph/paragraph.component';
 import sampledata from './sampledata/test.json';
 import JSONInput from 'react-json-editor-ajrm';
 
@@ -33,6 +38,55 @@ class App extends React.Component {
     }
   };
 
+  _renderColType = (col, colindex, row) => {
+    let el = (
+      <Paper className="paper">
+        <span> {col.colWidth} </span>
+      </Paper>
+    );
+    let gridClass = 'grid';
+    switch(row.cover || 'none'){
+      case "color":
+      gridClass+=' color';
+      break;
+      case "none":
+      default:
+      break;
+    }
+
+    switch (col.colType) {
+      case 'footer':
+        el = <Footer />;
+        break;
+      case 'image':
+        el = <ImageComp />;
+        break;
+      case 'paragraph':
+        el = <Paragraph />;
+        break;
+      case 'navbar':
+        el = <NavBar />;
+        break;
+      case 'card-image':
+        el = <CardImage />
+        break;
+      case 'whitespace':
+      default:
+        el = null;
+        break;
+    }
+    return (
+      <Grid
+        className={gridClass}
+        key={`grid-row-content-${colindex}`}
+        item
+        xs={col.colWidth}
+      >
+        {el}
+      </Grid>
+    );
+  };
+
   render() {
     let {
       codetheme,
@@ -52,20 +106,7 @@ class App extends React.Component {
                   style={{ height: `${f.height}px` }}
                 >
                   {f.children.map((ff, ii) => {
-                    return (
-                      <Grid
-                        key={`grid-row-content-${ii}`}
-                        item
-                        xs={ff.colWidth}
-                        style={{ display: 'flex' }}
-                      >
-                        {ff.colType === 'whitespace' ? null : (
-                          <Paper className="paper">
-                            <span> {ff.colWidth} </span>
-                          </Paper>
-                        )}
-                      </Grid>
-                    );
+                    return this._renderColType(ff, ii, f);
                   })}
                 </Grid>
               );

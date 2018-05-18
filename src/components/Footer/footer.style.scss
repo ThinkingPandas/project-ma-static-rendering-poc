@@ -1,0 +1,23 @@
+div.footer {
+  flex: 1 0;
+  background-color: rgba(4, 4, 4, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  span{
+      color: white !important;
+      font-size: 75%;
+  }
+  div.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right:10px;
+    span {
+      opacity: 0.8;
+    }
+  }
+  > div.filler {
+    flex: 1 0;
+  }
+}

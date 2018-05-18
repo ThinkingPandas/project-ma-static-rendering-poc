@@ -2,21 +2,17 @@
   "data": [
     {
       "rowType": "header_1",
-      "height": 100,
+      "height": 75,
       "children": [
         {
-          "colType": "image",
-          "colWidth":1
-        },
-        {
           "colType": "navbar",
-          "colWidth": 11
+          "colWidth": 12
         }
       ]
     },
     {
       "rowType": "feature_1",
-      "height": 400,
+      "height": 250,
       "children": [
         {
           "colType": "image",
@@ -30,29 +26,44 @@
     },
     {
       "rowType": "feature_1",
-      "height": 220,
+      "height": 250,
       "children": [
         {
-          "colType": "image",
-          "colWidth": 3
-        },
-        {
-          "colType": "text",
-          "colWidth": 3
-        },
-        {
-          "colType": "text",
-          "colWidth": 3
+          "colType": "paragraph",
+          "colWidth": 7
         },
         {
           "colType": "image",
+          "colWidth": 5
+        }
+      ]
+    },
+    {
+      "rowType": "feature_1",
+      "cover": "color",
+      "height": 370,
+      "children": [
+        {
+          "colType": "card-image",
+          "colWidth": 3
+        },
+        {
+          "colType": "card-image",
+          "colWidth": 3
+        },
+        {
+          "colType": "card-image",
+          "colWidth": 3
+        },
+        {
+          "colType": "card-image",
           "colWidth": 3
         }
       ]
     },
     {
       "rowType": "feature_1",
-      "height": 165,
+      "height": 185,
       "children": [
         {
           "colType": "whitespace",
@@ -73,7 +84,7 @@
       "height": 50,
       "children": [
         {
-          "colType": "paragraph",
+          "colType": "footer",
           "colWidth": 12
         }
       ]
