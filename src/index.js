@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
-import registerServiceWorker from './registerServiceWorker';
+import { render } from "react-dom"
 import { Grid, Paper, TextField } from '@material-ui/core';
 import { Scrollbars } from 'react-custom-scrollbars';
 import NavBar from './components/NavBar/navbar.component';
@@ -9,8 +7,101 @@ import CardImage from './components/CardImage/cardImage.component';
 import Footer from './components/Footer/footer.component';
 import ImageComp from './components/Image/image.component';
 import Paragraph from './components/Paragraph/paragraph.component';
-import sampledata from './sampledata/test.json';
 import JSONInput from 'react-json-editor-ajrm';
+
+const sampledata = {
+  "data": [
+    {
+      "rowType": "header_1",
+      "height": 75,
+      "children": [
+        {
+          "colType": "navbar",
+          "colWidth": 12
+        }
+      ]
+    },
+    {
+      "rowType": "feature_1",
+      "height": 250,
+      "children": [
+        {
+          "colType": "image",
+          "colWidth": 5
+        },
+        {
+          "colType": "paragraph",
+          "colWidth": 7
+        }
+      ]
+    },
+    {
+      "rowType": "feature_1",
+      "height": 250,
+      "children": [
+        {
+          "colType": "paragraph",
+          "colWidth": 7
+        },
+        {
+          "colType": "image",
+          "colWidth": 5
+        }
+      ]
+    },
+    {
+      "rowType": "feature_1",
+      "cover": "color",
+      "height": 370,
+      "children": [
+        {
+          "colType": "card-image",
+          "colWidth": 3
+        },
+        {
+          "colType": "card-image",
+          "colWidth": 3
+        },
+        {
+          "colType": "card-image",
+          "colWidth": 3
+        },
+        {
+          "colType": "card-image",
+          "colWidth": 3
+        }
+      ]
+    },
+    {
+      "rowType": "feature_1",
+      "height": 185,
+      "children": [
+        {
+          "colType": "whitespace",
+          "colWidth": 2
+        },
+        {
+          "colType": "image",
+          "colWidth": 8
+        },
+        {
+          "colType": "whitespace",
+          "colWidth": 2
+        }
+      ]
+    },
+    {
+      "rowType": "footer_1",
+      "height": 50,
+      "children": [
+        {
+          "colType": "footer",
+          "colWidth": 12
+        }
+      ]
+    }
+  ]
+};
 
 class App extends React.Component {
   constructor(props) {
@@ -55,26 +146,37 @@ class App extends React.Component {
     }
 
     switch (col.colType) {
-      case 'footer':
-        el = <Footer />;
-        break;
-      case 'image':
-        el = <ImageComp />;
-        break;
-      case 'paragraph':
-        el = <Paragraph />;
-        break;
-      case 'navbar':
-        el = <NavBar />;
-        break;
+      // case 'footer':
+      //   el = <Footer />;
+      //   break;
+      // case 'image':
+      //   el = <ImageComp />;
+      //   break;
+      // case 'paragraph':
+      //   el = <Paragraph />;
+      //   break;
+      // case 'navbar':
+      //   el = <NavBar />;
+      //   break;
       case 'card-image':
-        el = <CardImage />
+        el = (<div className="card-image">
+        <div
+          className="img"
+          style={{
+            backgroundImage: `url(https://picsum.photos/500/500/?random)`,
+          }}
+        />
+        <div className="content">
+          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+        </div>
+      </div>)
         break;
       case 'whitespace':
       default:
-        el = null;
+        el = <div />;
         break;
     }
+
     return (
       <Grid
         className={gridClass}
@@ -93,17 +195,17 @@ class App extends React.Component {
       data: { data },
       inputData,
     } = this.state;
+
     return (
       <div className="main-wrapper" id="main-wrapper">
         <div className="preview">
           <Scrollbars renderThumbHorizontal={() => <div />}>
-            {data.map((f, i) => {
+            {sampledata.data.map((f, i) => {
               return (
                 <Grid
                   key={`grid-row-${i}`}
                   container
                   spacing={8}
-                  style={{ height: `${f.height}px` }}
                 >
                   {f.children.map((ff, ii) => {
                     return this._renderColType(ff, ii, f);
@@ -129,5 +231,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+module.exports = <App />

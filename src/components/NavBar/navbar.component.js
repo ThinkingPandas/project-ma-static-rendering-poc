@@ -13,7 +13,6 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <div className="navbar">
-        <img src={require('../../images/logo.png')} />
         <div className="filler" />
         <Button variant="outlined">Home</Button>
         <Button>Features</Button>

@@ -1,5 +1,4 @@
 import React from 'react';
-import './cardImage.style.scss';
 
 export default class CardImage extends React.Component {
   constructor(props) {

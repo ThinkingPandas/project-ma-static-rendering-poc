@@ -24,10 +24,10 @@ export default class Rect extends React.Component {
   }
 
   updateWindowDimensions = () => {
-    let divdimension = document.getElementById('main-wrapper');
-    this.setState({
-      windowr: { width: divdimension.offsetWidth*0.98, height: divdimension.offsetHeight*0.98 },
-    });
+    // let divdimension = document.getElementById('main-wrapper');
+    // this.setState({
+    //   windowr: { width: divdimension.offsetWidth*0.98, height: divdimension.offsetHeight*0.98 },
+    // });
   };
 
   render() {
